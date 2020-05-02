@@ -20,7 +20,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
         public TextView nameTextView;
         public TextView addressTextView;
-        //public ImageView imgView;
+
 
 
         public ContactViewHolder(View itemView) {
@@ -28,13 +28,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
             nameTextView = (TextView) itemView.findViewById(R.id.contact_name);
             addressTextView = (TextView) itemView.findViewById(R.id.contact_address);
-           // imgView = (ImageView) itemView.findViewById(R.id.imageView);
+
 
         }
 
-       // public void setImage(String url){
-       //     Picasso.get().load(url).error(R.drawable.ic_launcher_foreground).into(imgView);
-     //   }
+
 
     }
 
@@ -65,7 +63,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             textView.setText(contact.getmName());
             TextView textView2 = viewHolder.addressTextView;
             textView2.setText(contact.getmAddress());
-           // viewHolder.setImage(contact.getmPicture());
+
 
 
         }
@@ -75,7 +73,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             return mContacts.size();
         }
 
-
+        public void addContacts(Contact contact){
+            mContacts.add(0,contact);
+            notifyItemChanged(0);
+        }
 
     }
 

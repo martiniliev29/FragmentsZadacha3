@@ -14,7 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AddContactDialogListener{
 
     RecyclerView rv;
     ContactAdapter adapter;
@@ -43,5 +43,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onFinishAddDialog(Contact mcontact){
+        adapter.addContacts(mcontact);
     }
 }
